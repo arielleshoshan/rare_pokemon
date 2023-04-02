@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- the full dict for a pokemon is sent here as pokemon_dict by the route -->
+
+<h1>{{ pokemon_dict['Pokemon'] }}</h1>
+
+<!-- NOTE the pattern for pointing to a file inside the static folder -->
+<img class="right" src="{{ url_for('static', filename='images/' + pokemon_dict['Image']) }}" alt="Pokemon portrait">
+
+<p>This is the {{ ord }} Rarest Pokemon. It's a {{ pokemon_dict['Card-year'] }} {{ pokemon_dict['Card-type'] }}. The valuation for this card is {{ pokemon_dict['Value'] }}.
+
+</p>
+
+
+
+<!-- NOTE the way to link to a route: Use the function name -->
+<p style="margin-top: 50%"><a href="{{ url_for('index') }}">Return to the list</a> to select a different pokemon.</p>
+
+{% endblock %}

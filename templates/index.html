@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 style="color: black;">Top <span style="color: #ed1b24; font-size: 1.2em;">20</span> Most Expensive & Rare  <span style="color: #ed1b24;">Pokémon Cards</span> Ever Sold!</h1>
+
+ <p>Click any Pokémon card to see its rarity and value!</p><a href="https://cardcollector.co.uk/rarest-pokemon-cards/" target="_blank"><p>Found on this site</p></a>
+
+<!-- pairs is a list that must be sent here by a route function
+     The list will contain 20 pairs: a pokemon rank, and a
+     pokemon's name -->
+
+    <ul>
+    {% for pair in pairs %}
+        <li><a href="{{ url_for( 'detail', num=pair[0] ) }}">{{ pair[1] }}</a></li>
+    {% endfor %}
+    </ul>
+
+{% endblock %}
